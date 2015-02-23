@@ -1,6 +1,6 @@
-<h1>List of Urls</h1>
-<% @url.each do |url| %>
-  <p><%= link_to url.name, url_path(url) %></p>
+<h1>List of Urls for <%= @user.name %></h1>
+<% @urls.each do |url| %>
+  <p><%= link_to url.name, user_url_path(url) %></p>
 <% end %>
 
 <%= link_to "Create a shortened url", new_url_path %>

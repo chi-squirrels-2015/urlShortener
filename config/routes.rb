@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
 
-  # root 'urls#index'
-  resources :urls
+  root 'users#index'
+  resources :users do
+    resources :urls
+  end
 
-   get ':shortened_url' => 'urls#short_code'
+  get 'signup' => 'users#new'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  get ':shortened_url' => 'urls#short_code'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
