@@ -3,4 +3,4 @@
 <p><%= @url.shortened_url %></p>
 <p><%= @url.original_url %></p>
 
-<%= link_to "Delete url Record", user_url_path(@url), confirm: "Are you sure?", method: :delete %>
+<%= link_to "Delete url Record", user_url_path(user_id: current_user.id, id: @url.id), confirm: "Are you sure?", method: :delete %>

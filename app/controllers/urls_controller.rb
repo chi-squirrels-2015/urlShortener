@@ -1,8 +1,7 @@
 class UrlsController < ApplicationController
   require 'SecureRandom'
   def index
-    @user = User.find(params[:user_id])
-    @urls = @user.urls
+    @urls = current_user.urls
   end
 
   def new
@@ -10,17 +9,18 @@ class UrlsController < ApplicationController
   end
 
   def create
-    url = Url.create!(name: params[:url][:name], original_url: params[:url][:original_url], shortened_url: SecureRandom.urlsafe_base64(n=4))
+    url = Url.create!(name: params[:url][:name], original_url: params[:url][:original_url], shortened_url: SecureRandom.urlsafe_base64(n=4), user: current_user)
 
     redirect_to user_urls_path
   end
 
   def show
-    @url = Url.where(id: params[:id], user: current_user)
+    @url = Url.find_by(id: params[:id], user: current_user)
   end
 
   def destroy
     Url.destroy(params[:id])
+
     redirect_to user_urls_path
   end
 

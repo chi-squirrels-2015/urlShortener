@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150223193259) do
     t.string   "name"
     t.string   "original_url"
     t.string   "shortened_url"
+    t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

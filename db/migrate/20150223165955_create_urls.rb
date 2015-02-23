@@ -4,6 +4,7 @@ class CreateUrls < ActiveRecord::Migration
       t.string :name
       t.string :original_url
       t.string :shortened_url
+      t.references :user
 
       t.timestamps null: false
     end
