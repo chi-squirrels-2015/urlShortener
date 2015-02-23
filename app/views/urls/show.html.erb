@@ -1,0 +1,6 @@
+<h1><%= @url.name %></h1>
+
+<p><%= @url.shortened_url %></p>
+<p><%= @url.original_url %></p>
+
+<%= link_to "Delete url Record", url_path(@url), confirm: "Are you sure?", method: :delete %>

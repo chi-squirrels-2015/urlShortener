@@ -1,0 +1,6 @@
+<h1>List of Urls</h1>
+<% @url.each do |url| %>
+  <p><%= link_to url.name, url_path(url) %></p>
+<% end %>
+
+<%= link_to "Create a shortened url", new_url_path %>
